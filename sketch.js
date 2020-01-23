@@ -1,24 +1,24 @@
 var rainDrops = [];
-let fiji;
-function preload() {
-	fiji = loadImage('fiji.png');
-}
-
 function setup() {
 	createCanvas(700, 800); // make an HTML canvas element width x height pixels
 	angleMode(DEGREES);
 	ellipseMode(RADIUS);
 
-	image(fiji, 0, 0);
-
 	for (var i = 0; i < 60; i++) {
 		rainDrops.push(new RainDrop(i));
 	}
-
 }
+
 function draw() {
-	background(0);
+	var bgCol;
+	if (hour() / 2 > 0) {
+		bgCol = 0;
+	} else {
+		bgCol = 255;
+	}
+	background(bgCol);
 	noStroke();
+	/*
 	textSize(32);
 	fill(180);
 	text(hour(), 10, 30);
@@ -26,33 +26,42 @@ function draw() {
 	text(minute(), 10, 60);
 	fill(255);
 	text(second(), 10, 90);
+	*/
 
-	strokeWeight(4);
-	fill(0, 119, 190);
+	fill(bgCol);
+	ellipse(width/2, height-200, 300, 150);
+
+	strokeWeight(2);
+	fill(0, 119, 190, 100);
 	stroke(0, 119, 190);
-	//stroke(0, 128, 255);
-	let eWh = map(hour(), 0, 24, 300, 400);
-	let eHh = map(hour(), 0, 24, 150, 200);
-	ellipse(width/2, 600, eWh, eHh);
+	let eWh = map(hour() % 12, 0, 12, 200, 300);
+	let eHh = map(hour() % 12, 0, 12, 100, 150);
+	ellipse(width/2, height-200, eWh, eHh);
 
-	fill(115, 194, 251);
-	//stroke(115, 194, 251);
-	stroke(0, 128, 255);
-	let eWm = map(minute(), 0, 60, 200, 300);
-	let eHm = map(minute(), 0, 60, 100, 150);
-	ellipse(width/2, 600, eWm, eHm);
+	fill(bgCol);
+	ellipse(width/2, height-200, 200, 100);
+
+	fill(115, 194, 251, 100);
+	stroke(115, 194, 251);
+	let eWm = map(minute(), 0, 60, 100, 200);
+	let eHm = map(minute(), 0, 60, 50, 100);
+	ellipse(width/2, height-200, eWm, eHm);
 	
+	fill(bgCol);
+	ellipse(width/2, height-200, 100, 50);
+
 	fill(0, 128, 255, 100);	
 	stroke(0, 128, 255);
-	let eWs = map(second(), 0, 60, 0, 200);
-	let eHs = map(second(), 0, 60, 0, 100);
-	ellipse(width/2, 600, eWs, eHs);
+	let eWs = map(second(), 0, 60, 0, 100);
+	let eHs = map(second(), 0, 60, 0, 50);
+	ellipse(width/2, height-200, eWs, eHs);
 
 	noFill();
 	for (var i = 0; i < second(); i++) {
 		rainDrops[i].update();
 		rainDrops[i].display();
 	}	
+
 }
 
 class RainDrop {
@@ -86,7 +95,6 @@ class RainDrop {
 		stroke(0, 128, 255);
 		strokeWeight(4);
 		if (this.y < this.maxy) {
-	//		stroke(255);
 			push();
 			translate(this.x, this.y);
 			beginShape();
@@ -99,7 +107,6 @@ class RainDrop {
 			pop();
 		} else {
 			stroke(0, 128, 255, map(this.r, 0, this.tr, 255, 0));
-		//	fill(0, 128, 255, map(this.r, 0, this.tr, 255, 0));	
 			ellipse(this.x, this.y, this.r*2, this.r);
 		}
 	}
