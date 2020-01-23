@@ -28,32 +28,34 @@ function draw() {
 	text(second(), 10, 90);
 	*/
 
+	var sc = 350;
+
 	fill(bgCol);
-	ellipse(width/2, height-200, 300, 150);
+	ellipse(width/2, height-200, sc, sc/2);
 
 	strokeWeight(2);
 	fill(0, 119, 190, 100);
 	stroke(0, 119, 190);
-	let eWh = map(hour() % 12, 0, 12, 200, 300);
-	let eHh = map(hour() % 12, 0, 12, 100, 150);
+	let eWh = map(hour() % 12, 0, 12, sc-50, sc);
+	let eHh = map(hour() % 12, 0, 12, (sc-50)/2, sc/2);
 	ellipse(width/2, height-200, eWh, eHh);
 
 	fill(bgCol);
-	ellipse(width/2, height-200, 200, 100);
+	ellipse(width/2, height-200, sc-50, (sc-50)/2);
 
 	fill(115, 194, 251, 100);
 	stroke(115, 194, 251);
-	let eWm = map(minute(), 0, 60, 100, 200);
-	let eHm = map(minute(), 0, 60, 50, 100);
+	let eWm = map(minute(), 0, 60, sc-150, sc-50);
+	let eHm = map(minute(), 0, 60, (sc-150)/2, (sc-50)/2);
 	ellipse(width/2, height-200, eWm, eHm);
 	
 	fill(bgCol);
-	ellipse(width/2, height-200, 100, 50);
+	ellipse(width/2, height-200, sc-150, (sc-150)/2);
 
 	fill(0, 128, 255, 100);	
 	stroke(0, 128, 255);
-	let eWs = map(second(), 0, 60, 0, 100);
-	let eHs = map(second(), 0, 60, 0, 50);
+	let eWs = map(second(), 0, 60, 0, sc-150);
+	let eHs = map(second(), 0, 60, 0, (sc-150)/2);
 	ellipse(width/2, height-200, eWs, eHs);
 
 	noFill();
