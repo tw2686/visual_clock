@@ -1,15 +1,15 @@
 var rainDrops = [];
-/*let fiji;
+let fiji;
 function preload() {
 	fiji = loadImage('fiji.png');
-}*/
+}
 
 function setup() {
 	createCanvas(700, 800); // make an HTML canvas element width x height pixels
 	angleMode(DEGREES);
 	ellipseMode(RADIUS);
 
-//	image(fiji, 0, 0);
+	image(fiji, 0, 0);
 
 	for (var i = 0; i < 60; i++) {
 		rainDrops.push(new RainDrop(i));
