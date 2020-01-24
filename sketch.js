@@ -18,6 +18,7 @@ function draw() {
 	}
 	background(bgCol);
 	noStroke();
+
 	/*
 	textSize(32);
 	fill(180);
@@ -34,7 +35,7 @@ function draw() {
 	ellipse(width/2, height-200, sc, sc/2);
 
 	strokeWeight(2);
-	fill(0, 119, 190, 100);
+	fill(0, 119, 190);
 	stroke(0, 119, 190);
 	let eWh = map(hour() % 12, 0, 12, sc-50, sc);
 	let eHh = map(hour() % 12, 0, 12, (sc-50)/2, sc/2);
@@ -43,7 +44,7 @@ function draw() {
 	fill(bgCol);
 	ellipse(width/2, height-200, sc-50, (sc-50)/2);
 
-	fill(115, 194, 251, 100);
+	fill(115, 194, 251);
 	stroke(115, 194, 251);
 	let eWm = map(minute(), 0, 60, sc-150, sc-50);
 	let eHm = map(minute(), 0, 60, (sc-150)/2, (sc-50)/2);
@@ -52,7 +53,7 @@ function draw() {
 	fill(bgCol);
 	ellipse(width/2, height-200, sc-150, (sc-150)/2);
 
-	fill(0, 128, 255, 100);	
+	fill(0, 128, 255, 200);	
 	stroke(0, 128, 255);
 	let eWs = map(second(), 0, 60, 0, sc-150);
 	let eHs = map(second(), 0, 60, 0, (sc-150)/2);
